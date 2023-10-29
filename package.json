@@ -32,15 +32,13 @@
         "url": "https://github.com/rogerio-romao/js-next-frontend-starter/issues"
     },
     "homepage": "https://github.com/rogerio-romao/js-next-frontend-starter#readme",
-    "browserslist": [
-        "fully supports es6-module"
-    ],
     "devDependencies": {
         "@isnotdefined/stylelint-plugin": "^3.1.0",
         "@playwright/test": "^1.39.0",
         "@types/node": "^20.8.9",
         "@types/react": "^18.2.33",
         "@types/react-dom": "^18.2.14",
+        "@typescript-eslint/eslint-plugin": "^6.9.0",
         "@typescript-eslint/parser": "^6.9.0",
         "@vitest/coverage-v8": "^0.34.6",
         "@vitest/ui": "^0.34.6",
@@ -68,6 +66,7 @@
         "stylelint-selector-tag-no-without-class": "^2.0.6",
         "stylelint-use-nesting": "^4.1.0",
         "stylelint-value-no-exposed-custom-properties": "^2.3.1",
+        "typescript": "^5.2.2",
         "vitest": "^0.34.6"
     },
     "dependencies": {

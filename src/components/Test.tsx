@@ -1,9 +1,9 @@
 'use client';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import styles from '../css/test.module.css';
 
-function Test() {
+function Test(): React.ReactElement {
     const [counter, setCounter] = useState(0);
     return (
         <>
