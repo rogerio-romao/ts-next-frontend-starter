@@ -1,13 +1,14 @@
 // components
+import React from 'react';
 import Test from '../components/Test';
 
 // styles
 import styles from '../css/app.module.css';
 
-export default function Page() {
+export default function Page(): React.ReactElement {
     return (
         <div className={styles.app}>
-            <h1 className={styles.mainpage_title}>Next.Js 14 App</h1>
+            <h1 className={styles.mainpage_title}>Next.Js 14 Typescript App</h1>
 
             <hr className={styles.separator} />
 
