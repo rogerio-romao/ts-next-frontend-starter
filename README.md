@@ -1,8 +1,8 @@
-# js-next-frontend-starter
+# ts-next-frontend-starter
 
-Project Starter for Frontend JS projects - Next JS
+Project Starter for Frontend Typescript projects - Next JS
 
-[![Build Status](https://app.travis-ci.com/rogerio-romao/js-next-frontend-starter.svg?branch=main)](https://app.travis-ci.com/rogerio-romao/js-next-frontend-starter)
+[![Build Status](https://app.travis-ci.com/rogerio-romao/ts-next-frontend-starter.svg?branch=main)](https://app.travis-ci.com/rogerio-romao/ts-next-frontend-starter)
 
 ## Features
 
