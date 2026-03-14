@@ -1,115 +1,132 @@
-/***
-    The new CSS reset - version 1.11 (last updated 20.9.2023)
-    GitHub page: https://github.com/elad2412/the-new-css-reset
-***/
-
 /*
-    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-    - The "symbol *" part is to solve Firefox SVG sprite bug
-    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
- */
-*:where(
-        :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
-    ) {
-    all: unset;
-    display: revert;
-}
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
 
-/* Preferred box-sizing value */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+  -----------------
 
-/* Fix mobile Safari increase font-size on landscape mode */
-html {
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
-}
+  Also some rules from Andy Bell's CSS Reset:
+  https://piccalil.li/blog/a-more-modern-css-reset/
+*/
 
-/* Reapply the pointer cursor for anchor tags */
-a,
-button {
-    cursor: revert;
-}
+@layer reset {
+    :root {
+        interpolate-size: allow-keywords;
+    }
 
-/* Remove list styles (bullets/numbers) */
-ol,
-ul,
-menu {
-    list-style: none;
-}
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
 
-/* For images to not be able to exceed their container */
-img {
-    max-inline-size: 100%;
-    max-block-size: 100%;
-}
+    * {
+        margin: 0;
+    }
 
-/* removes spacing between cells in tables */
-table {
-    border-collapse: collapse;
-}
+    *:focus-visible {
+        /* https://medienbaecker.com/articles/focus-outlines */
+        outline-color: currentColor;
+        outline-style: solid;
+        outline-offset: 0.25rem;
+        outline-width: 0.25rem;
+    }
 
-/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
-input,
-textarea {
-    -webkit-user-select: auto;
-}
+    /* https://nerdy.dev/6-css-snippets-every-front-end-developer-should-know-in-2025#view-transitions-for-page-navigation */
+    @view-transition {
+        navigation: auto;
+    }
 
-/* revert the 'white-space' property for textarea elements on Safari */
-textarea {
-    white-space: revert;
-}
+    html {
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
+    }
 
-/* minimum style to allow to style meter element */
-meter {
-    -webkit-appearance: revert;
-    appearance: revert;
-}
+    body {
+        min-height: 100vh;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+    }
 
-/* preformatted text - use only for this feature */
-:where(pre) {
-    all: revert;
-    box-sizing: border-box;
-}
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+        display: block;
+        max-block-size: 100%;
+        max-inline-size: 100%;
+    }
 
-/* reset default text opacity of input placeholder */
-::placeholder {
-    color: unset;
-}
+    input,
+    button,
+    textarea,
+    select {
+        font: inherit;
+    }
 
-/* remove default dot (•) sign */
-::marker {
-    content: initial;
-}
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        overflow-wrap: break-word;
+    }
 
-/* fix the feature of 'hidden' attribute.
-   display:revert; revert to element instead of attribute */
-:where([hidden]) {
-    display: none;
-}
+    p {
+        text-wrap: pretty;
+        /* https://12daysofweb.dev/2024/css-margin-trim-line-height-units/ */
+        margin-block: 1em;
+        margin-block: 1lh;
+    }
 
-/* revert for bug in Chromium browsers
-   - fix for the content editable attribute will work properly.
-   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element */
-:where([contenteditable]:not([contenteditable='false'])) {
-    -moz-user-modify: read-write;
-    -webkit-user-modify: read-write;
-    overflow-wrap: break-word;
-    -webkit-line-break: after-white-space;
-    -webkit-user-select: auto;
-}
+    :where(h1) {
+        /* h1 doesnt get smaller when nested inside sections */
+        font-size: 2em;
+        margin-block: 0.67em;
+    }
 
-/* apply back the draggable feature - exist only in Chromium and Safari */
-:where([draggable='true']) {
-    -webkit-user-drag: element;
-}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        text-wrap: balance;
+    }
 
-/* Revert Modal native behavior */
-:where(dialog:modal) {
-    all: revert;
-    box-sizing: border-box;
+    #root,
+    #__next {
+        isolation: isolate;
+    }
+
+    /* -------------- */
+
+    /* Set shorter line heights on headings and interactive elements */
+    h1,
+    h2,
+    h3,
+    h4,
+    button,
+    input,
+    label {
+        line-height: 1.2;
+    }
+
+    /* A elements that don't have a class get default styles */
+    a:not([class]) {
+        text-decoration-skip-ink: auto;
+        color: currentColor;
+    }
+
+    /* Make sure textareas without a rows attribute are not tiny */
+    textarea:not([rows]) {
+        min-height: 10em;
+    }
+
+    /* Anything that has been anchored to should have extra scroll margin */
+    :target {
+        scroll-margin-block: 5ex;
+    }
 }
