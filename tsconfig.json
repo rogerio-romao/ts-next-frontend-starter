@@ -36,7 +36,8 @@
     "e2e",
     "playwright.config.js",
     "vitest.config.ts",
-    ".eslintrc.cjs",
+    "eslint.config.js",
+    "next-env.d.ts",
     "next.config.js",
     ".next/types/**/*.ts"
   ],
