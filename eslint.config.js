@@ -1,34 +1,41 @@
+import tsParser from '@typescript-eslint/parser';
+import next from 'eslint-config-next';
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
+import eslintCommentsPlugin from 'eslint-plugin-eslint-comments';
+import promisePlugin from 'eslint-plugin-promise';
+import sonarjsPlugin from 'eslint-plugin-sonarjs';
+import unicornPlugin from 'eslint-plugin-unicorn';
+import globals from 'globals';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import globals from 'globals';
-import tsParser from '@typescript-eslint/parser';
-import tsPlugin from '@typescript-eslint/eslint-plugin';
-import unicornPlugin from 'eslint-plugin-unicorn';
-import importPlugin from 'eslint-plugin-import';
-import eslintCommentsPlugin from 'eslint-plugin-eslint-comments';
-import sonarjsPlugin from 'eslint-plugin-sonarjs';
-import promisePlugin from 'eslint-plugin-promise';
-import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default [
+    ...next,
+    ...nextCoreWebVitals,
+    ...nextTypescript,
     // Replaces .eslintignore
     {
-        ignores: ['node_modules/**', 'dist/**', 'coverage/**', 'e2e/**', '.next/**', 'next-env.d.ts', 'eslint.config.js'],
+        ignores: [
+            'node_modules/**',
+            'dist/**',
+            'coverage/**',
+            'e2e/**',
+            '.next/**',
+            'next-env.d.ts',
+            'eslint.config.js',
+        ],
     },
-
     // Main config
     {
         files: ['**/*.{js,jsx,ts,tsx}'],
         plugins: {
             unicorn: unicornPlugin,
-            import: importPlugin,
             'eslint-comments': eslintCommentsPlugin,
             sonarjs: sonarjsPlugin,
             promise: promisePlugin,
-            '@typescript-eslint': tsPlugin,
-            'jsx-a11y': jsxA11yPlugin,
         },
         languageOptions: {
             ecmaVersion: 'latest',
@@ -92,7 +99,10 @@ export default [
             'no-unreachable': 'error',
             'no-unreachable-loop': 'error',
             'no-unsafe-finally': 'error',
-            'no-unsafe-negation': ['error', { enforceForOrderingRelations: true }],
+            'no-unsafe-negation': [
+                'error',
+                { enforceForOrderingRelations: true },
+            ],
             'no-unsafe-optional-chaining': [
                 'error',
                 { disallowArithmeticOperators: true },
@@ -121,7 +131,11 @@ export default [
             'dot-notation': 'off',
             eqeqeq: ['error', 'always', { null: 'ignore' }],
             'func-names': ['warn', 'as-needed'],
-            'func-style': ['warn', 'declaration', { allowArrowFunctions: true }],
+            'func-style': [
+                'warn',
+                'declaration',
+                { allowArrowFunctions: true },
+            ],
             'grouped-accessor-pairs': ['warn', 'getBeforeSet'],
             'guard-for-in': 'error',
             'logical-assignment-operators': [
@@ -146,7 +160,10 @@ export default [
             'no-eval': 'error',
             'no-extend-native': 'error',
             'no-extra-bind': 'error',
-            'no-extra-boolean-cast': ['warn', { enforceForLogicalOperands: true }],
+            'no-extra-boolean-cast': [
+                'warn',
+                { enforceForLogicalOperands: true },
+            ],
             'no-extra-label': 'error',
             'no-extra-semi': 'off',
             'no-global-assign': 'error',
@@ -197,7 +214,10 @@ export default [
             'no-unused-labels': 'error',
             'no-useless-call': 'error',
             'no-useless-catch': 'warn',
-            'no-useless-computed-key': ['error', { enforceForClassMembers: true }],
+            'no-useless-computed-key': [
+                'error',
+                { enforceForClassMembers: true },
+            ],
             'no-useless-concat': 'error',
             'no-useless-constructor': 'off',
             'no-useless-escape': 'error',
@@ -220,8 +240,14 @@ export default [
             'prefer-exponentiation-operator': 'error',
             'prefer-object-has-own': 'error',
             'prefer-object-spread': 'error',
-            'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
-            'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
+            'prefer-promise-reject-errors': [
+                'error',
+                { allowEmptyReject: true },
+            ],
+            'prefer-regex-literals': [
+                'error',
+                { disallowRedundantWrapping: true },
+            ],
             'prefer-rest-params': 'error',
             'prefer-spread': 'error',
             'prefer-template': 'error',
@@ -404,7 +430,10 @@ export default [
             'promise/valid-params': 'error',
             // TypeScript rules
             '@typescript-eslint/adjacent-overload-signatures': 'warn',
-            '@typescript-eslint/array-type': ['warn', { default: 'array-simple' }],
+            '@typescript-eslint/array-type': [
+                'warn',
+                { default: 'array-simple' },
+            ],
             '@typescript-eslint/await-thenable': 'warn',
             '@typescript-eslint/ban-ts-comment': [
                 'warn',
@@ -426,7 +455,10 @@ export default [
                 'warn',
                 { assertionStyle: 'as', objectLiteralTypeAssertions: 'allow' },
             ],
-            '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
+            '@typescript-eslint/consistent-type-definitions': [
+                'warn',
+                'interface',
+            ],
             '@typescript-eslint/consistent-type-exports': 'error',
             '@typescript-eslint/consistent-type-imports': 'error',
             '@typescript-eslint/explicit-module-boundary-types': [
@@ -444,7 +476,10 @@ export default [
             '@typescript-eslint/no-duplicate-type-constituents': 'error',
             '@typescript-eslint/no-dynamic-delete': 'warn',
             '@typescript-eslint/no-empty-interface': 'warn',
-            '@typescript-eslint/no-explicit-any': ['warn', { fixToUnknown: true }],
+            '@typescript-eslint/no-explicit-any': [
+                'warn',
+                { fixToUnknown: true },
+            ],
             '@typescript-eslint/no-extra-non-null-assertion': 'warn',
             '@typescript-eslint/no-extraneous-class': 'error',
             '@typescript-eslint/no-floating-promises': 'error',
@@ -457,7 +492,8 @@ export default [
             '@typescript-eslint/no-misused-promises': 'error',
             '@typescript-eslint/no-mixed-enums': 'error',
             '@typescript-eslint/no-namespace': 'warn',
-            '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
+            '@typescript-eslint/no-non-null-asserted-nullish-coalescing':
+                'error',
             '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
             '@typescript-eslint/no-redundant-type-constituents': 'error',
             '@typescript-eslint/no-require-imports': 'warn',
@@ -607,7 +643,6 @@ export default [
             'jsx-a11y/tabindex-no-positive': 'error',
         },
     },
-
     // Override for playwright.config.js (replaces overrides array)
     {
         files: ['playwright.config.js'],
