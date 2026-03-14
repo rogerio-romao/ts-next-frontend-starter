@@ -81,9 +81,6 @@ importers:
       stylelint:
         specifier: ^16.6.1
         version: 16.20.0(typescript@5.8.3)
-      stylelint-a11y:
-        specifier: ^1.2.3
-        version: 1.2.3(stylelint@16.20.0(typescript@5.8.3))
       stylelint-css-modules:
         specifier: ^1.2.2
         version: 1.2.2(stylelint@16.20.0(typescript@5.8.3))
@@ -516,24 +513,28 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@next/swc-linux-arm64-musl@14.2.29':
     resolution: {integrity: sha512-9i+JEHBOVgqxQ92HHRFlSW1EQXqa/89IVjtHgOqsShCcB/ZBjTtkWGi+SGCJaYyWkr/lzu51NTMCfKuBf7ULNw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@next/swc-linux-x64-gnu@14.2.29':
     resolution: {integrity: sha512-B7JtMbkUwHijrGBOhgSQu2ncbCYq9E7PZ7MX58kxheiEOwdkM+jGx0cBb+rN5AeqF96JypEppK6i/bEL9T13lA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@next/swc-linux-x64-musl@14.2.29':
     resolution: {integrity: sha512-yCcZo1OrO3aQ38B5zctqKU1Z3klOohIxug6qdiKO3Q3qNye/1n6XIs01YJ+Uf+TdpZQ0fNrOQI2HrTLF3Zprnw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@next/swc-win32-arm64-msvc@14.2.29':
     resolution: {integrity: sha512-WnrfeOEtTVidI9Z6jDLy+gxrpDcEJtZva54LYC0bSKQqmyuHzl0ego+v0F/v2aXq0am67BRqo/ybmmt45Tzo4A==}
@@ -616,56 +617,67 @@ packages:
     resolution: {integrity: sha512-wC53ZNDgt0pqx5xCAgNunkTzFE8GTgdZ9EwYGVcg+jEjJdZGtq9xPjDnFgfFozQI/Xm1mh+D9YlYtl+ueswNEg==}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.41.1':
     resolution: {integrity: sha512-jwKCca1gbZkZLhLRtsrka5N8sFAaxrGz/7wRJ8Wwvq3jug7toO21vWlViihG85ei7uJTpzbXZRcORotE+xyrLA==}
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.41.1':
     resolution: {integrity: sha512-g0UBcNknsmmNQ8V2d/zD2P7WWfJKU0F1nu0k5pW4rvdb+BIqMm8ToluW/eeRmxCared5dD76lS04uL4UaNgpNA==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.41.1':
     resolution: {integrity: sha512-XZpeGB5TKEZWzIrj7sXr+BEaSgo/ma/kCgrZgL0oo5qdB1JlTzIYQKel/RmhT6vMAvOdM2teYlAaOGJpJ9lahg==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-loongarch64-gnu@4.41.1':
     resolution: {integrity: sha512-bkCfDJ4qzWfFRCNt5RVV4DOw6KEgFTUZi2r2RuYhGWC8WhCA8lCAJhDeAmrM/fdiAH54m0mA0Vk2FGRPyzI+tw==}
     cpu: [loong64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-powerpc64le-gnu@4.41.1':
     resolution: {integrity: sha512-3mr3Xm+gvMX+/8EKogIZSIEF0WUu0HL9di+YWlJpO8CQBnoLAEL/roTCxuLncEdgcfJcvA4UMOf+2dnjl4Ut1A==}
     cpu: [ppc64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-gnu@4.41.1':
     resolution: {integrity: sha512-3rwCIh6MQ1LGrvKJitQjZFuQnT2wxfU+ivhNBzmxXTXPllewOF7JR1s2vMX/tWtUYFgphygxjqMl76q4aMotGw==}
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-musl@4.41.1':
     resolution: {integrity: sha512-LdIUOb3gvfmpkgFZuccNa2uYiqtgZAz3PTzjuM5bH3nvuy9ty6RGc/Q0+HDFrHrizJGVpjnTZ1yS5TNNjFlklw==}
     cpu: [riscv64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-s390x-gnu@4.41.1':
     resolution: {integrity: sha512-oIE6M8WC9ma6xYqjvPhzZYk6NbobIURvP/lEbh7FWplcMO6gn7MM2yHKA1eC/GvYwzNKK/1LYgqzdkZ8YFxR8g==}
     cpu: [s390x]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.41.1':
     resolution: {integrity: sha512-cWBOvayNvA+SyeQMp79BHPK8ws6sHSsYnK5zDcsC3Hsxr1dgTABKjMnMslPq1DvZIp6uO7kIWhiGwaTdR4Og9A==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.41.1':
     resolution: {integrity: sha512-y5CbN44M+pUCdGDlZFzGGBSKCA4A/J2ZH4edTYSSxFg7ce1Xt3GtydbVKWLlzL+INfFIZAEg1ZV6hh9+QQf9YQ==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-win32-arm64-msvc@4.41.1':
     resolution: {integrity: sha512-lZkCxIrjlJlMt1dLO/FbpZbzt6J/A8p4DnqzSa4PWqPEUUUnzXLeki/iyPLfV0BmHItlYgHUqJe+3KiyydmiNQ==}
@@ -3144,12 +3156,6 @@ packages:
         optional: true
       babel-plugin-macros:
         optional: true
-
-  stylelint-a11y@1.2.3:
-    resolution: {integrity: sha512-S/iiKFUsYBfa4suxP0pYQqoPB9R1+SnvxVuzHHlz9al0IWxLZzXlnZEqEez0zNOhVh5iO3rATUmDnbZE5wm/pQ==}
-    engines: {node: '>=8.7.0'}
-    peerDependencies:
-      stylelint: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
 
   stylelint-css-modules-no-global-scoped-selector@1.0.2:
     resolution: {integrity: sha512-NMerTM1/8D4Az/c3P59eYptP3PoNuUXV1NuJ+Xe+TILqZH8UE4oV9NvjUnklnVHvYqk5HsjAURnvMNXZAzYBLA==}
@@ -6986,10 +6992,6 @@ snapshots:
     dependencies:
       client-only: 0.0.1
       react: 18.3.1
-
-  stylelint-a11y@1.2.3(stylelint@16.20.0(typescript@5.8.3)):
-    dependencies:
-      stylelint: 16.20.0(typescript@5.8.3)
 
   stylelint-css-modules-no-global-scoped-selector@1.0.2(stylelint@16.20.0(typescript@5.8.3)):
     dependencies:

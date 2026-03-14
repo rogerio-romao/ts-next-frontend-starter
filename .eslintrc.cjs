@@ -21,6 +21,14 @@ module.exports = {
         project: true,
         tsconfigRootDir: __dirname,
     },
+    overrides: [
+        {
+            files: ['playwright.config.js'],
+            rules: {
+                'import/named': 'off',
+            },
+        },
+    ],
     rules: {
         // Possible Errors
         'array-callback-return': [
