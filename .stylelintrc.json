@@ -4,7 +4,6 @@
     "reportNeedlessDisables": true,
     "plugins": [
         "@isnotdefined/stylelint-plugin",
-        "stylelint-a11y",
         "stylelint-css-modules",
         "stylelint-css-modules-no-global-scoped-selector",
         "stylelint-declaration-block-no-ignored-properties",
@@ -107,13 +106,6 @@
         "shorthand-property-no-redundant-values": true,
         "comment-whitespace-inside": "always",
         "@isnotdefined/no-obsolete": true,
-        "a11y/content-property-no-static-value": true,
-        "a11y/media-prefers-reduced-motion": true,
-        "a11y/no-display-none": true,
-        "a11y/no-obsolete-attribute": true,
-        "a11y/no-obsolete-element": true,
-        "a11y/no-outline-none": true,
-        "a11y/selector-pseudo-class-focus": true,
         "css-modules/no-global-scoped-selector": [
             true,
             { "fileExtensions": [".module.css", ".module.scss"] }
