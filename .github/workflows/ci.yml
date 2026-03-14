@@ -28,10 +28,10 @@ jobs:
               run: pnpm run typecheck
             - name: Unit Tests
               run: pnpm run test:ci
-    e2e:
-        name: Playwright E2E Tests
+    build:
+        name: Build
         runs-on: ubuntu-latest
-        timeout-minutes: 30
+        timeout-minutes: 15
         steps:
             - uses: actions/checkout@v4
             - uses: pnpm/action-setup@v4
@@ -43,6 +43,49 @@ jobs:
                   cache: pnpm
             - name: Install dependencies
               run: pnpm install
+            - name: Cache Next.js build
+              uses: actions/cache@v4
+              with:
+                  path: .next/cache
+                  key:
+                      nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{
+                      hashFiles('**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx',
+                      '**/*.css') }}
+                  restore-keys: |
+                      nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+            - name: Build
+              run: pnpm run build
+    e2e:
+        name: Playwright E2E Tests
+        runs-on: ubuntu-latest
+        timeout-minutes: 30
+        needs: build
+        steps:
+            - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: latest
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: pnpm
+            - name: Install dependencies
+              run: pnpm install
+            - name: Cache Next.js build
+              uses: actions/cache@v4
+              with:
+                  path: .next/cache
+                  key:
+                      nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{
+                      hashFiles('**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx',
+                      '**/*.css') }}
+                  restore-keys: |
+                      nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+            - name: Cache Playwright browsers
+              uses: actions/cache@v4
+              with:
+                  path: ~/.cache/ms-playwright
+                  key: playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
             - name: Install Playwright Browsers
               run: pnpm exec playwright install --with-deps
             - name: Run Playwright Tests
