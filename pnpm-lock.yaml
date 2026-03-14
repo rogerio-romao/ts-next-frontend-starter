@@ -115,8 +115,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.1(stylelint@16.20.0(typescript@5.8.3))
       stylelint-use-nesting:
-        specifier: ^5.0.0
-        version: 5.1.2(stylelint@16.20.0(typescript@5.8.3))
+        specifier: ^6.0.2
+        version: 6.0.2(stylelint@16.20.0(typescript@5.8.3))
       stylelint-value-no-exposed-custom-properties:
         specifier: ^2.3.1
         version: 2.3.1(stylelint@16.20.0(typescript@5.8.3))
@@ -2921,6 +2921,10 @@ packages:
     resolution: {integrity: sha512-8sLjZwK0R+JlxlYcTuVnyT2v+htpdrjDOKuMcOVdYjt52Lh8hWRYpxBPoKx/Zg+bcjc3wx6fmQevMmUztS/ccA==}
     engines: {node: '>=4'}
 
+  postcss-selector-parser@7.1.1:
+    resolution: {integrity: sha512-orRsuYpJVw8LdAwqqLykBj9ecS5/cRHlI5+nvTo8LcCKmzDmqVORXtOIYEEQuL9D4BxtA1lm5isAqzQZCoQ6Eg==}
+    engines: {node: '>=4'}
+
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
@@ -3484,11 +3488,11 @@ packages:
     peerDependencies:
       stylelint: '>= 9.x < 17'
 
-  stylelint-use-nesting@5.1.2:
-    resolution: {integrity: sha512-MGSHQnpMif1f/FRMZT7yetTwqK2spGz/pimNBIznPLFQK3kewUgY/seWkQxWWYmvOe0qxaXoOrl+ZIjgJvSTRw==}
+  stylelint-use-nesting@6.0.2:
+    resolution: {integrity: sha512-1YeOfI7pMucTO0GKAiBOz12EaNN5qzbbboAli/jDC47nTfNsOVd9c4WmTshQnnaMDRF8ZZ0ovGzBjw0WUE4tvg==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
-      stylelint: '>= 16'
+      stylelint: '>= 16.9.0'
 
   stylelint-value-no-exposed-custom-properties@2.3.1:
     resolution: {integrity: sha512-t3lIxS3zY/Mn//FXjyFqfyTxDSj3aCsrwnNzWQceFs6TfJ7zPY2fbF8Gf2vNOm68JyZizB7kWlC4mcDnWKmE+g==}
@@ -6957,6 +6961,11 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
+  postcss-selector-parser@7.1.1:
+    dependencies:
+      cssesc: 3.0.0
+      util-deprecate: 1.0.2
+
   postcss-value-parser@4.2.0: {}
 
   postcss-values-parser@6.0.2(postcss@8.4.33):
@@ -7642,8 +7651,9 @@ snapshots:
       postcss-selector-parser: 6.0.15
       stylelint: 16.20.0(typescript@5.8.3)
 
-  stylelint-use-nesting@5.1.2(stylelint@16.20.0(typescript@5.8.3)):
+  stylelint-use-nesting@6.0.2(stylelint@16.20.0(typescript@5.8.3)):
     dependencies:
+      postcss-selector-parser: 7.1.1
       stylelint: 16.20.0(typescript@5.8.3)
 
   stylelint-value-no-exposed-custom-properties@2.3.1(stylelint@16.20.0(typescript@5.8.3)):
