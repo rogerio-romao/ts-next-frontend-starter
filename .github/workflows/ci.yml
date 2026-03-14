@@ -10,13 +10,13 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 10
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v6
             - uses: pnpm/action-setup@v4
               with:
                   version: latest
-            - uses: actions/setup-node@v4
+            - uses: actions/setup-node@v6
               with:
-                  node-version: 22
+                  node-version: 24
                   cache: pnpm
             - name: Install dependencies
               run: pnpm install
@@ -33,18 +33,18 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 15
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v6
             - uses: pnpm/action-setup@v4
               with:
                   version: latest
-            - uses: actions/setup-node@v4
+            - uses: actions/setup-node@v6
               with:
-                  node-version: 22
+                  node-version: 24
                   cache: pnpm
             - name: Install dependencies
               run: pnpm install
             - name: Cache Next.js build
-              uses: actions/cache@v4
+              uses: actions/cache@v5
               with:
                   path: .next/cache
                   key:
@@ -60,13 +60,13 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 30
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v6
             - uses: pnpm/action-setup@v4
               with:
                   version: latest
-            - uses: actions/setup-node@v4
+            - uses: actions/setup-node@v6
               with:
-                  node-version: 22
+                  node-version: 24
                   cache: pnpm
             - name: Install dependencies
               run: pnpm install
@@ -75,7 +75,7 @@ jobs:
               run: echo "version=$(pnpm ls @playwright/test --json | jq -r '.[0].devDependencies["@playwright/test"].version')" >> "$GITHUB_OUTPUT"
             - name: Cache Playwright browsers
               id: playwright-cache
-              uses: actions/cache@v4
+              uses: actions/cache@v5
               with:
                   path: ~/.cache/ms-playwright
                   key: playwright-chromium-${{ steps.playwright-version.outputs.version }}
@@ -87,7 +87,7 @@ jobs:
               run: pnpm exec playwright install-deps chromium
             - name: Run Playwright Tests
               run: pnpm run test:e2e
-            - uses: actions/upload-artifact@v4
+            - uses: actions/upload-artifact@v7
               if: always()
               with:
                   name: playwright-report
