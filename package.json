@@ -68,7 +68,7 @@
         "stylelint-selector-tag-no-without-class": "^3.0.0",
         "stylelint-use-nesting": "^6.0.2",
         "stylelint-value-no-exposed-custom-properties": "^2.3.1",
-        "typescript": "^5.5.4",
+        "typescript": "^5.9.3",
         "vitest": "^3.1.4"
     },
     "dependencies": {
