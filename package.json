@@ -2,7 +2,6 @@
     "name": "eslint-preset-js-frontend",
     "version": "1.0.0",
     "description": "My own personal Eslint preset for Javascript frontend projects",
-    "main": "index.js",
     "type": "module",
     "scripts": {
         "dev": "next dev",
@@ -82,6 +81,7 @@
             "@types/react-dom": "19.2.3"
         },
         "onlyBuiltDependencies": [
+            "msw",
             "sharp",
             "unrs-resolver"
         ]
